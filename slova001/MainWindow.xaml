@@ -39,14 +39,17 @@
 
 
 
-        <WrapPanel Grid.Row="2" FlowDirection="RightToLeft" Background="#FF355D64" >
+        <WrapPanel Grid.Row="2" FlowDirection="LeftToRight" Background="#FF355D64" >
             <Button Name="butt001" Background="#FFB5D9DA" Margin="4" Content=" Кнопка 1 " Click="butt001_Click" />
             <Button Name="butt002" Background="#FFB5D9d3" Margin="4" Content=" Кнопка 2 " Click="butt002_Click" />
             <Button Name="butt003" Background="#FFB5D9D1" Margin="4" Content=" Кнопка 3 " Click="butt003_Click" />
             <Button Name="butt004" Background="#FFB5D911" Margin="4" Content=" Кнопка 4 " Click="butt004_Click" />
-            <Slider Name="sliderspeed" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="123" Margin="4" Maximum="7" Minimum="-5" Value="-2" ></Slider>
-            <Slider Name="slidervol" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="123" Margin="4" Maximum="100" Minimum="0" Value="75"   ></Slider>
-            
+          
+            <Slider Name="sliderspeed"  TickPlacement="BottomRight" TickFrequency="1"     HorizontalAlignment="Center" Width="123" Margin="4" Maximum="7" Minimum="-5" Value="-2" ></Slider>
+   <TextBox Text=" Speed "></TextBox>
+        
+            <Slider Name="slidervol"  TickPlacement="BottomRight" TickFrequency="5"   HorizontalAlignment="Center" Width="123" Margin="4" Maximum="100" Minimum="0" Value="75"   ></Slider>
+               <TextBox Text=" Vol "></TextBox> 
         </WrapPanel>
 
         

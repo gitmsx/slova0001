@@ -158,8 +158,8 @@ namespace slova001
 
             
 
-            //synth.Rate =  sliderspeed.Value;
-            //synth.Volume = trackBar2.Value;
+            synth.Rate = Convert.ToInt32(sliderspeed.Value);
+            synth.Volume = Convert.ToInt32(slidervol.Value);
 
             // Configure the audio output.   
             synth.SetOutputToDefaultAudioDevice();
