@@ -1,0 +1,15 @@
+C:\Users\vaduser\source\repos\slova001\slova001\bin\Debug\slova001.exe.config
+C:\Users\vaduser\source\repos\slova001\slova001\bin\Debug\slova001.exe
+C:\Users\vaduser\source\repos\slova001\slova001\bin\Debug\slova001.pdb
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001.csprojAssemblyReference.cache
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\MainWindow.g.cs
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\App.g.cs
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001_MarkupCompile.cache
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001_MarkupCompile.lref
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\MainWindow.baml
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001.g.resources
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001.Properties.Resources.resources
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001.csproj.GenerateResource.cache
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001.csproj.CoreCompileInputs.cache
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001.exe
+C:\Users\vaduser\source\repos\slova001\slova001\obj\Debug\slova001.pdb
