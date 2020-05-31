@@ -53,15 +53,23 @@ namespace slova001
                 newBtn.Content = "Button  ==-" + i.ToString();
                 newBtn.Name = "Button" + i.ToString();
                 newBtn.Height = 23;
+                newBtn.Click += new RoutedEventHandler(newBtn_Click);
                 WrapPanel002.Children.Add(newBtn);
                 
             }
 
-       
+           
 
 
         }
+        private void newBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+            {
+                MessageBox.Show(btn.Name);
+            }
+        }
 
-    
     }
 }
