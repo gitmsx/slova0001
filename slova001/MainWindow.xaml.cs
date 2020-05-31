@@ -15,11 +15,32 @@ using System.Windows.Shapes;
 
 namespace slova001
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
+    
+
+
     public partial class MainWindow : Window
     {
+
+ private int kolichestvo_slov = 0;
+    private int vneseno_slov = 0;
+
+
+        string[] massiv_input = new String[75];
+        string[] massiv_etalon = new String[75];
+        string[] massiv__ouput = new String[75];
+        Label[] massiv__ouput_link = new Label[75];
+
+
+
+        int count_all_word = 0;  // Current number of entered words.
+        int count_inpuut_word = 0;  // Current number of entered words.
+
+
+
+
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,24 +62,55 @@ namespace slova001
             }
         }
 
-    private void butt002_Click(object sender, RoutedEventArgs e)
+
+
+
+        void zagruzka_frazy(string input_fra2)
+        {
+            String input_fra3 = System.Text.RegularExpressions.Regex.Replace(input_fra2, "[ ]+", " ");
+            String pattern = " ";
+            massiv_input = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
+            massiv_etalon = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
+            kolichestvo_slov = massiv_input.Length;
+
+
+            var r = new Random();  // Change the position of words randomly.
+            for (int i = massiv_input.Length - 1; i > 1; i--)
+            {
+                int j = r.Next(i) + 1;
+                var t = massiv_input[i];
+                massiv_input[i] = massiv_input[j];
+                massiv_input[j] = t;
+            }
+
+
+        }
+
+
+        private void butt002_Click(object sender, RoutedEventArgs e)
     {
 
 
+            String inputfr = load_from_txt();
+            zagruzka_frazy(" " + inputfr);
 
 
-            for (int i = 0; i < 34; i++)
+
+
+            for (int i = 1; i <  massiv_input.Length; i++)
             {
                 Button newBtn = new Button();
-                newBtn.Content = "Button  ==-" + i.ToString();
+                newBtn.Content = massiv_input[i];
                 newBtn.Name = "Button" + i.ToString();
                 newBtn.Height = 23;
                 newBtn.Click += new RoutedEventHandler(newBtn_Click);
                 WrapPanel002.Children.Add(newBtn);
-                
+
             }
 
-           
+
+
+
 
 
         }
@@ -71,5 +123,30 @@ namespace slova001
             }
         }
 
+
+        private string load_from_txt()
+        {
+            string[] lines = System.IO.File.ReadAllLines(@"T_eng.txt");
+            string[] line_s_eng2 = System.IO.File.ReadAllLines(@"T_eng2.txt", Encoding.GetEncoding(1251));
+
+            string[] line_s_rus  = System.IO.File.ReadAllLines(@"T_rus.txt", Encoding.GetEncoding(1251));
+            string[] line_s_rus2 = System.IO.File.ReadAllLines(@"T_rus2.txt", Encoding.GetEncoding(1251));
+
+            var rand001 = new Random();
+            int jrand = rand001.Next(lines.Length);
+
+            TextBox001.Text = line_s_rus[jrand];
+            TextBox002.Text = line_s_eng2[jrand];
+            TextBox003.Text = Convert.ToString(jrand) + "  " + line_s_rus2[jrand];
+
+            return lines[jrand];
+
+
+        }
+
+        private void butt003_Click(object sender, RoutedEventArgs e)
+        {
+            load_from_txt();
+        }
     }
 }

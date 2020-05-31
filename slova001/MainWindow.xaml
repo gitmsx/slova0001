@@ -15,22 +15,34 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions >
-            <RowDefinition Height="2.5*" ></RowDefinition>
-            <RowDefinition Height="2.5*" ></RowDefinition>
-           
+            <RowDefinition Height="3.5*" ></RowDefinition>
+            <RowDefinition Height="3.5*" ></RowDefinition>
+
+            <RowDefinition Height="2*" ></RowDefinition>
             <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+            
+            
         </Grid.RowDefinitions>
 
 
         <WrapPanel Name="WrapPanel001" Orientation="Horizontal" Grid.Row="0" Background="#FF37595F"></WrapPanel>
         <WrapPanel Name="WrapPanel002" Grid.Row="1" Background="#FF418A97"></WrapPanel>
+        <WrapPanel Name="WrapPanel004" Grid.Row="3" Background="#FF39B1C7">
+            <TextBox Name="TextBox001" ></TextBox>
+            <TextBox Name="TextBox003" ></TextBox>
+        </WrapPanel>
+        <WrapPanel Name="WrapPanel005" Grid.Row="4"  Background="#FF1594AB">
+
+            <TextBox Name="TextBox002" ></TextBox>
+        </WrapPanel>
 
 
-        
+
         <WrapPanel Grid.Row="2" FlowDirection="RightToLeft" Background="#FF355D64" >
             <Button Name="butt001" Background="#FFB5D9DA" Margin="4" Content=" Кнопка 1 " Click="butt001_Click" />
             <Button Name="butt002" Background="#FFB5D9d3" Margin="4" Content=" Кнопка 2 " Click="butt002_Click" />
-            <Button Name="butt003" Background="#FFB5D9D1" Margin="4" Content=" Кнопка 3 " />
+            <Button Name="butt003" Background="#FFB5D9D1" Margin="4" Content=" Кнопка 3 " Click="butt003_Click" />
             <Slider Name="sliderspeed" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="123" Margin="4" Maximum="7" Minimum="-5" Value="-2" ></Slider>
             <Slider Name="slidervol" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="123" Margin="4" Maximum="100" Minimum="0" Value="75" ></Slider>
             
