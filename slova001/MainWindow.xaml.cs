@@ -169,6 +169,22 @@ namespace slova001
 
 
         }
- 
+
+        private void butt005_Click(object sender, RoutedEventArgs e)
+        {
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+
+
+
+
+            synth.Rate = Convert.ToInt32(sliderspeed.Value);
+            synth.Volume = Convert.ToInt32(slidervol.Value);
+
+            // Configure the audio output.   
+            synth.SetOutputToDefaultAudioDevice();
+
+            // Speak a string.  
+            synth.Speak(TextBox001.Text);
+        }
     }
 }
