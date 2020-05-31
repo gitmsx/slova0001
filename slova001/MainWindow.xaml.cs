@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Speech.Synthesis;
+
 
 namespace slova001
 {
@@ -148,5 +150,25 @@ namespace slova001
         {
             load_from_txt();
         }
+
+        private void butt004_Click(object sender, RoutedEventArgs e)
+        {
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+
+
+            
+
+            //synth.Rate =  sliderspeed.Value;
+            //synth.Volume = trackBar2.Value;
+
+            // Configure the audio output.   
+            synth.SetOutputToDefaultAudioDevice();
+
+            // Speak a string.  
+            synth.Speak(TextBox002.Text);
+
+
+        }
+ 
     }
 }
