@@ -57,15 +57,7 @@ namespace slova001
 
         private void butt001_Click(object sender, RoutedEventArgs e)
         {
-            Button[] btns = new Button[50];
-            for (int i = 0; i < btns.Length; i++)
-            {
-                var btn = new Button
-                {
-                    Content = "Button-" + i.ToString(),
-                };
-                WrapPanel001.Children.Add(btn);
-            }
+          
         }
 
 
@@ -93,10 +85,23 @@ namespace slova001
         }
 
 
+
+
         private void new_message_in_words_in_panel_choice(object sender, RoutedEventArgs e)
         {
 
- 
+            new_uroks();
+
+  
+        }
+
+
+
+
+        private void new_uroks()
+        {
+
+
 
 
             WrapPanel001.Children.Clear();
@@ -111,7 +116,7 @@ namespace slova001
 
                 massiv_activ_buttons[i] = 1;
                 Button newBtn = new Button();
-                newBtn.Content =" "+massiv_input[i]+" ";
+                newBtn.Content = "  " + massiv_input[i] + " ";
                 newBtn.Name = but_ch + i.ToString();
                 newBtn.FontSize = slider_size.Value;
 
@@ -119,11 +124,10 @@ namespace slova001
                 newBtn.Height = newBtn.Height + 3;
 
                 newBtn.Background = Brush_set_l101;
-                    
+
                 newBtn.BorderBrush = Brush_set_l102;
 
 
-                //MyControl.Margin = new Padding(0, 0, 0, 0);
 
 
                 newBtn.Click += new RoutedEventHandler(click_wrap2);
@@ -153,6 +157,27 @@ namespace slova001
             newBtn.Click += new RoutedEventHandler(click_wrap1);
             WrapPanel001.Children.Add(newBtn);
 
+            
+
+            int kol_vnes = 0;
+
+            for (int di3 = 1; di3 < massiv_input.Length; di3++)
+            {
+                kol_vnes += massiv_activ_buttons[di3] ;
+            }
+
+            if (kol_vnes == 0)
+            {
+
+            
+            bool foundanswer = check_answer();
+            if (foundanswer)
+            {
+
+                    MessageBox("You win!!!");
+                new_uroks();  
+            }
+            }
 
         }
 
@@ -162,7 +187,7 @@ namespace slova001
             var btn = sender as Button;
             if (btn != null)
             {
-                //MessageBox.Show(btn.Name);
+ 
 
                 string but_cho_str = btn.Name;
                 string but_cho_str2 = but_cho_str.Replace(but_ans, "");
@@ -177,12 +202,7 @@ namespace slova001
 
 
 
-                //var name = but_ch+ but_cho_str2;
-                //if (WrapPanel002.ContainsKey(name))
-                //{
-                //    var textBox = this.Controls[name];
-                //    // делаем с этим элементом то, что нам нужно
-                //}
+             
 
                 foreach (Button txt12 in WrapPanel002.Children)
                 {
@@ -248,6 +268,31 @@ namespace slova001
             return lines[jrand];
         }
 
+
+
+
+        bool check_answer()
+        {
+
+            bool identical = true;
+            string prov_str = "";
+
+
+            foreach (Button txt12 in WrapPanel001.Children)
+            {
+                prov_str += txt12.Content +" "; 
+            }
+                if (prov_str != TextBox002.Text +" ")
+                {
+                    identical = false;
+                   
+                }
+            return identical;
+
+        }
+
+
+
         private void butt003_Click(object sender, RoutedEventArgs e)
         {
             load_from_txt();
@@ -267,18 +312,6 @@ namespace slova001
 
 
         }
-
-        private void butt005_Click(object sender, RoutedEventArgs e)
-        {
-            SpeechSynthesizer synth = new SpeechSynthesizer();
-            synth.Rate = Convert.ToInt32(sliderspeed.Value);
-            synth.Volume = Convert.ToInt32(slidervol.Value);
-
-            // Configure the audio output.   
-            synth.SetOutputToDefaultAudioDevice();
-
-            // Speak a string.  
-            synth.SpeakAsync(TextBox001.Text);
-        }
+         
     }
 }
