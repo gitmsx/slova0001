@@ -37,8 +37,10 @@ namespace slova001
         Label[] massiv__ouput_link = new Label[75];
 
 
-        Brush Brush_set_l101 = Brushes.Red;
+        Brush Brush_set_l101 = Brushes.DarkGray;
         Brush Brush_set_l102 = Brushes.SteelBlue;
+        Brush Brush_set_l103 = Brushes.DarkSlateGray;
+
 
         int count_all_word = 0;  // Current number of entered words.
         int count_inpuut_word = 0;  // Current number of entered words.
@@ -94,12 +96,7 @@ namespace slova001
         private void new_message_in_words_in_panel_choice(object sender, RoutedEventArgs e)
         {
 
-            double left = 1, top = 2, right = 3, bottom = 4;
-            Thickness myThickness = new Thickness();
-            myThickness.Bottom = 5;
-            myThickness.Left = 5;
-            myThickness.Right = 5;
-            myThickness.Top = 5;
+ 
 
 
             WrapPanel001.Children.Clear();
@@ -121,8 +118,9 @@ namespace slova001
                 newBtn.Width = newBtn.Width + 7;
                 newBtn.Height = newBtn.Height + 3;
 
-                newBtn.BorderThickness = myThickness;
-                newBtn.BorderBrush = Brush_set_l101;
+                newBtn.Background = Brush_set_l101;
+                    
+                newBtn.BorderBrush = Brush_set_l102;
 
 
                 //MyControl.Margin = new Padding(0, 0, 0, 0);
@@ -138,14 +136,7 @@ namespace slova001
         private void add_word_in_answer(int position)
         {
 
-            double left = 1, top = 2, right = 3, bottom = 4;
-            Thickness myThickness = new Thickness();
-            myThickness.Bottom = 5;
-            myThickness.Left = 5;
-            myThickness.Right = 5;
-            myThickness.Top = 5;
 
-            //        massiv_activ_buttons2 [position] = 1;
 
             Button newBtn = new Button();
             newBtn.Content = massiv_input[position];
@@ -156,7 +147,6 @@ namespace slova001
             newBtn.Height = newBtn.Height + 3;
 
 
-            newBtn.BorderThickness = myThickness;
             newBtn.BorderBrush = Brush_set_l101;
 
             //MyControl.Margin = new Padding(0, 0, 0, 0);
@@ -182,9 +172,36 @@ namespace slova001
 
                 int numb_but_pressed = Convert.ToInt32(but_cho_str2);
                 massiv_activ_buttons[numb_but_pressed] = 1;
-                btn.Background = Brush_set_l101;
-
                 WrapPanel001.Children.Remove(btn);
+
+
+
+
+                //var name = but_ch+ but_cho_str2;
+                //if (WrapPanel002.ContainsKey(name))
+                //{
+                //    var textBox = this.Controls[name];
+                //    // делаем с этим элементом то, что нам нужно
+                //}
+
+                foreach (Button txt12 in WrapPanel002.Children)
+                {
+                    if (txt12.Name == but_ch + but_cho_str2)
+                    {
+                        txt12.BorderBrush = Brush_set_l101;
+                        txt12.Background = Brush_set_l102;
+
+
+                    }
+                    else
+                        continue;
+                }
+
+
+
+
+
+
 
 
             }
@@ -207,14 +224,9 @@ namespace slova001
                 if (massiv_activ_buttons[numb_but_pressed] == 1)
                 {
                     massiv_activ_buttons[numb_but_pressed] = 0;
-                    btn.Background = Brush_set_l102;
+                    btn.Background = Brush_set_l103;
                     add_word_in_answer(numb_but_pressed);
                 }
-                //else
-                //{
-                //    massiv_activ_buttons[numb_but_pressed] = 1;
-                //    btn.Background = Brush_set_l101;
-                //}
             }
         }
 
