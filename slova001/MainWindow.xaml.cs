@@ -174,7 +174,7 @@ namespace slova001
             if (foundanswer)
             {
 
-                    MessageBox("You win!!!");
+                    MessageBox.Show("You win!!!");
                 new_uroks();  
             }
             }
