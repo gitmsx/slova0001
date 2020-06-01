@@ -52,7 +52,7 @@
             <TextBox Text=" Vol " Height="22"></TextBox>
             <Slider Name="slidervol"  TickPlacement="BottomRight" TickFrequency="5"   Width="123" Margin="4" Maximum="100" Minimum="0" Value="95" ></Slider>
             <TextBox Text=" Size " Height="22"></TextBox>
-            <Slider x:Name="slider_size"  TickPlacement="BottomRight" TickFrequency="5"    Width="100" Margin="4" Maximum="48" Minimum="10" Value="16" />
+            <Slider x:Name="slider_size"  TickPlacement="BottomRight" TickFrequency="5"    Width="100" Margin="4" Maximum="48" Minimum="10" Value="24" />
         </WrapPanel>
 
         

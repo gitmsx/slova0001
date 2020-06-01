@@ -111,7 +111,7 @@ namespace slova001
 
                 massiv_activ_buttons[i] = 1;
                 Button newBtn = new Button();
-                newBtn.Content = massiv_input[i];
+                newBtn.Content =" "+massiv_input[i]+" ";
                 newBtn.Name = but_ch + i.ToString();
                 newBtn.FontSize = slider_size.Value;
 
