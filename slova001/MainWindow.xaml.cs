@@ -149,7 +149,7 @@ namespace slova001
 
             Button newBtn = new Button();
             newBtn.Content = massiv_input[position];
-            newBtn.Name = "ButtonW" + position.ToString();
+            newBtn.Name = but_ans + position.ToString();
             newBtn.FontSize = slider_size.Value;
 
             newBtn.Width = newBtn.Width + 7;
@@ -176,23 +176,19 @@ namespace slova001
 
                 string but_cho_str = btn.Name;
                 string but_cho_str2 = but_cho_str.Replace(but_ans, "");
-
+              
+                
+      
 
                 int numb_but_pressed = Convert.ToInt32(but_cho_str2);
+                massiv_activ_buttons[numb_but_pressed] = 1;
+                btn.Background = Brush_set_l101;
+
+                WrapPanel001.Children.Remove(btn);
 
 
-                if (massiv_activ_buttons[numb_but_pressed] == 1)
-                {
-                    massiv_activ_buttons[numb_but_pressed] = 0;
-                    btn.Background = Brush_set_l102;
-                    add_word_in_answer(numb_but_pressed);
-                }
-              
             }
         }
-
-
-
 
         private void click_wrap2(object sender, RoutedEventArgs e)
         {
