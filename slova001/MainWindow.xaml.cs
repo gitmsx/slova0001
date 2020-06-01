@@ -24,35 +24,19 @@ namespace slova001
     {
 
         private string but_ch = "but_cho";
-
-
-        private int kolichestvo_slov = -1;
+        private int kolichestvo_slov = -2;
         private int vneseno_slov = 0;
-
 
         string[] massiv_input = new String[75];
         int[] massiv_activ_buttons = new int[75];
-
-
-
 
         string[] massiv_etalon = new String[75];
         string[] massiv__ouput = new String[75];
         Label[] massiv__ouput_link = new Label[75];
 
 
-
         Brush Brush_set_l101 = Brushes.Red;
         Brush Brush_set_l102 = Brushes.SteelBlue;
-
-
-
-
-
-
-
-
-
 
         int count_all_word = 0;  // Current number of entered words.
         int count_inpuut_word = 0;  // Current number of entered words.
@@ -74,11 +58,8 @@ namespace slova001
             {
                 var btn = new Button
                 {
-
-
                     Content = "Button-" + i.ToString(),
-
-                };
+                }
                 WrapPanel001.Children.Add(btn);
             }
         }
@@ -136,7 +117,6 @@ namespace slova001
                 newBtn.Width = newBtn.Width + 7;
                 newBtn.Height = newBtn.Height + 3;
 
-
                 newBtn.BorderThickness = myThickness;
                 newBtn.BorderBrush = Brush_set_l101;
 
@@ -148,31 +128,18 @@ namespace slova001
                 WrapPanel002.Children.Add(newBtn);
 
             }
-
-
-
-
-
-
         }
 
 
         private void add_word_in_answer(int position)
         {
 
-
             double left = 1, top = 2, right = 3, bottom = 4;
-
-
             Thickness myThickness = new Thickness();
             myThickness.Bottom = 5;
             myThickness.Left = 5;
             myThickness.Right = 5;
             myThickness.Top = 5;
-
-
-
-
 
             //        massiv_activ_buttons2 [position] = 1;
 
@@ -188,10 +155,7 @@ namespace slova001
             newBtn.BorderThickness = myThickness;
             newBtn.BorderBrush = Brush_set_l101;
 
-
             //MyControl.Margin = new Padding(0, 0, 0, 0);
-
-
             // newBtn.Click += new RoutedEventHandler(newBtn_Click2);
             WrapPanel001.Children.Add(newBtn);
 
@@ -220,18 +184,12 @@ namespace slova001
                     massiv_activ_buttons[numb_but_pressed] = 0;
                     btn.Background = Brush_set_l102;
                     add_word_in_answer(numb_but_pressed);
-
                 }
                 else
                 {
                     massiv_activ_buttons[numb_but_pressed] = 1;
                     btn.Background = Brush_set_l101;
-
                 }
-
-
-
-
             }
         }
 
@@ -250,10 +208,7 @@ namespace slova001
             TextBox001.Text = line_s_rus[jrand];
             TextBox002.Text = line_s_eng2[jrand];
             TextBox003.Text = Convert.ToString(jrand) + "  " + line_s_rus2[jrand];
-
             return lines[jrand];
-
-
         }
 
         private void butt003_Click(object sender, RoutedEventArgs e)
@@ -264,10 +219,6 @@ namespace slova001
         private void butt004_Click(object sender, RoutedEventArgs e)
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
-
-
-
-
             synth.Rate = Convert.ToInt32(sliderspeed.Value);
             synth.Volume = Convert.ToInt32(slidervol.Value);
 
@@ -283,10 +234,6 @@ namespace slova001
         private void butt005_Click(object sender, RoutedEventArgs e)
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
-
-
-
-
             synth.Rate = Convert.ToInt32(sliderspeed.Value);
             synth.Volume = Convert.ToInt32(slidervol.Value);
 
