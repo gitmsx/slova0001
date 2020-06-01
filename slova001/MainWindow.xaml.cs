@@ -24,6 +24,8 @@ namespace slova001
     {
 
         private string but_ch = "but_cho";
+        private string but_ans = "but_ans";
+
         private int kolichestvo_slov = -2;
         private int vneseno_slov = 0;
 
@@ -59,7 +61,7 @@ namespace slova001
                 var btn = new Button
                 {
                     Content = "Button-" + i.ToString(),
-                }
+                };
                 WrapPanel001.Children.Add(btn);
             }
         }
@@ -100,7 +102,9 @@ namespace slova001
             myThickness.Top = 5;
 
 
+            WrapPanel001.Children.Clear();
             WrapPanel002.Children.Clear();
+
             String inputfr = load_from_txt();
             zagruzka_frazy(" " + inputfr);
 
@@ -124,7 +128,7 @@ namespace slova001
                 //MyControl.Margin = new Padding(0, 0, 0, 0);
 
 
-                newBtn.Click += new RoutedEventHandler(newBtn_Click);
+                newBtn.Click += new RoutedEventHandler(click_wrap2);
                 WrapPanel002.Children.Add(newBtn);
 
             }
@@ -156,16 +160,41 @@ namespace slova001
             newBtn.BorderBrush = Brush_set_l101;
 
             //MyControl.Margin = new Padding(0, 0, 0, 0);
-            // newBtn.Click += new RoutedEventHandler(newBtn_Click2);
+            newBtn.Click += new RoutedEventHandler(click_wrap1);
             WrapPanel001.Children.Add(newBtn);
 
 
         }
 
 
+        private void click_wrap1(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+            {
+                //MessageBox.Show(btn.Name);
+
+                string but_cho_str = btn.Name;
+                string but_cho_str2 = but_cho_str.Replace(but_ans, "");
 
 
-        private void newBtn_Click(object sender, RoutedEventArgs e)
+                int numb_but_pressed = Convert.ToInt32(but_cho_str2);
+
+
+                if (massiv_activ_buttons[numb_but_pressed] == 1)
+                {
+                    massiv_activ_buttons[numb_but_pressed] = 0;
+                    btn.Background = Brush_set_l102;
+                    add_word_in_answer(numb_but_pressed);
+                }
+              
+            }
+        }
+
+
+
+
+        private void click_wrap2(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             if (btn != null)
@@ -185,11 +214,11 @@ namespace slova001
                     btn.Background = Brush_set_l102;
                     add_word_in_answer(numb_but_pressed);
                 }
-                else
-                {
-                    massiv_activ_buttons[numb_but_pressed] = 1;
-                    btn.Background = Brush_set_l101;
-                }
+                //else
+                //{
+                //    massiv_activ_buttons[numb_but_pressed] = 1;
+                //    btn.Background = Brush_set_l101;
+                //}
             }
         }
 
@@ -226,7 +255,7 @@ namespace slova001
             synth.SetOutputToDefaultAudioDevice();
 
             // Speak a string.  
-            synth.Speak(TextBox002.Text);
+            synth.SpeakAsync(TextBox002.Text);
 
 
         }
@@ -241,7 +270,7 @@ namespace slova001
             synth.SetOutputToDefaultAudioDevice();
 
             // Speak a string.  
-            synth.Speak(TextBox001.Text);
+            synth.SpeakAsync(TextBox001.Text);
         }
     }
 }
