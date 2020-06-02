@@ -47,7 +47,7 @@ namespace slova001
 
 
 
-
+         
 
 
         public MainWindow()
