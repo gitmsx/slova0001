@@ -100,7 +100,7 @@ namespace slova001
             for (ifs = 0; ifs < tmp_mas.Length - 1; ifs++)
             {
 
-                if (tmp_mas[ifs + 1].ToUpper() != "AN" && tmp_mas[ifs + 1].ToUpper() != "A")
+                if (tmp_mas[ifs + 1].ToUpper() != "AN" && tmp_mas[ifs + 1].ToUpper() != "A" && tmp_mas[ifs + 1].ToUpper() != "THE")
                     if (tmp_mas[ifs].Length < lenth_min && tmp_mas[ifs].Length > 0)
                     {
                         tmp_mas[ifs] += " " + tmp_mas[ifs + 1];
@@ -321,7 +321,7 @@ namespace slova001
             {
                 prov_str += txt12.Content + " ";
             }
-            if (prov_str != TextBox002.Text + " ")
+            if (prov_str.ToUpper() != TextBox002.Text.ToUpper() + " ")
             {
                 identical = false;
 
