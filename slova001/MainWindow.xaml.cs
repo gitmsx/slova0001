@@ -48,18 +48,18 @@ namespace slova001
         string[] massiv_input = new String[75];
         int[] massiv_activ_buttons = new int[75];
 
-        string[] massiv_etalon = new String[75];
-        string[] massiv__ouput = new String[75];
-        Label[] massiv__ouput_link = new Label[75];
+        //string[] massiv_etalon = new String[75];
+        //string[] massiv__ouput = new String[75];
+        //Label[] massiv__ouput_link = new Label[75];
 
 
-        Brush Brush_set_l101 = Brushes.DarkGray;
-        Brush Brush_set_l102 = Brushes.SteelBlue;
-        Brush Brush_set_l103 = Brushes.DarkSlateGray;
+        //Brush Brush_set_l101 = Brushes.DarkGray;
+        //Brush Brush_set_l102 = Brushes.SteelBlue;
+        //Brush Brush_set_l103 = Brushes.DarkSlateGray;
 
 
-        int count_all_word = 0;  // Current number of entered words.
-        int count_inpuut_word = 0;  // Current number of entered words.
+        //int count_all_word = 0;  // Current number of entered words.
+        //int count_inpuut_word = 0;  // Current number of entered words.
 
 
 
@@ -85,7 +85,7 @@ namespace slova001
             String input_fra3 = System.Text.RegularExpressions.Regex.Replace(input_fra2, "[ ]+", " ");
             String pattern = " ";
             massiv_input = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
-            massiv_etalon = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
+        //    massiv_etalon = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
             kolichestvo_slov = massiv_input.Length;
 
 
