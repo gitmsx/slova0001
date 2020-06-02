@@ -29,6 +29,10 @@ namespace slova001
         SolidColorBrush color101 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#82b3c9"));
         SolidColorBrush color103 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#b4004e"));
         SolidColorBrush color104 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#00701a"));
+        SolidColorBrush color105 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+        SolidColorBrush color106 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#003c8f"));
+
+
 
 
 
@@ -127,7 +131,14 @@ namespace slova001
                 newBtn.Width = newBtn.Width + 7;
                 newBtn.Height = newBtn.Height + 3;
                 newBtn.Background = color101;  // new urok
-               
+                newBtn.Foreground = color105;  // new urok
+                newBtn.BorderBrush = color106;  // new urok
+                
+
+                newBtn.Margin = new Thickness(5, 2, 0, 0);
+                newBtn.BorderThickness = new Thickness(1, 1, 1, 3);
+
+
                 newBtn.Click += new RoutedEventHandler(click_wrap2);
                 WrapPanel002.Children.Add(newBtn);
 
@@ -145,6 +156,7 @@ namespace slova001
             newBtn.Width = newBtn.Width + 7;
             newBtn.Height = newBtn.Height + 3;
             newBtn.Background = color101;  // wrap 1 add
+            
 
             newBtn.Click += new RoutedEventHandler(click_wrap1);
             WrapPanel001.Children.Add(newBtn);
@@ -186,7 +198,9 @@ namespace slova001
                 {
                     if (txt12.Name == but_ch + but_cho_str2)
                     {
-                        txt12.Background = color101;// wrap 2 101 vozvrat   = ok    
+                        txt12.Background = color101;// wrap 2 101 vozvrat   = ok   proyavka 
+                        txt12.Foreground = color105;  //  105
+                        txt12.BorderBrush = color106;
                     }
                     else
                         continue;
@@ -211,7 +225,9 @@ namespace slova001
                 if (massiv_activ_buttons[numb_but_pressed] == 1)
                 {
                     massiv_activ_buttons[numb_but_pressed] = 0;
-                    btn.Background = color102;             //  1-> 2 101 
+                    btn.Background  = color102;             //  1-> 2 101 skryvau 
+                    btn.Foreground  = color102;
+                    btn.BorderBrush = color102;
                     add_word_in_answer(numb_but_pressed);
                 }
             }
