@@ -84,19 +84,65 @@ namespace slova001
         {
             String input_fra3 = System.Text.RegularExpressions.Regex.Replace(input_fra2, "[ ]+", " ");
             String pattern = " ";
-            massiv_input = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
-        //    massiv_etalon = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
-            kolichestvo_slov = massiv_input.Length;
+            string[] tmp_mas = new String[75];
+
+            int lenth_min = 4;
+            int ifs;
+
+            tmp_mas = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
+
+            
+
+
+
+
+            //***
+            for (ifs = 0; ifs < tmp_mas.Length - 1; ifs++)
+            {
+
+                if (tmp_mas[ifs + 1].ToUpper() != "AN" && tmp_mas[ifs + 1].ToUpper() != "A")
+                    if (tmp_mas[ifs].Length < lenth_min && tmp_mas[ifs].Length > 0)
+                    {
+                        tmp_mas[ifs] += " " + tmp_mas[ifs + 1];
+                        tmp_mas[ifs + 1] = "";
+                    }
+
+             
+            }
+
+           
+            for (ifs = 0; ifs < kolichestvo_slov; ifs++)
+            {
+                massiv_input[ifs] = "";
+            }
+
+            int kol_stkor = 1;
+            for (ifs = 0; ifs < tmp_mas.Length; ifs++)
+            {
+                if (tmp_mas[ifs].Length > 0)
+                {
+                    
+                    massiv_input[kol_stkor] = tmp_mas[ifs];
+                    kol_stkor++;
+
+                }
+
+            }
+
+            //**
+
+            kolichestvo_slov = kol_stkor;
 
 
             var r = new Random();  // Change the position of words randomly.
-            for (int i = massiv_input.Length - 1; i > 1; i--)
+            for (int i = kolichestvo_slov - 1; i > 1; i--)
             {
                 int j = r.Next(i) + 1;
                 var t = massiv_input[i];
                 massiv_input[i] = massiv_input[j];
                 massiv_input[j] = t;
             }
+
 
 
         }
@@ -121,7 +167,7 @@ namespace slova001
             zagruzka_frazy(" " + inputfr);
 
 
-            for (int i = 1; i < massiv_input.Length; i++)
+            for (int i = 1; i < kolichestvo_slov; i++)
             {
 
                 massiv_activ_buttons[i] = 1;
@@ -173,7 +219,7 @@ namespace slova001
 
             int kol_vnes = 0;
 
-            for (int di3 = 1; di3 < massiv_input.Length; di3++)
+            for (int di3 = 1; di3 < kolichestvo_slov; di3++)
             {
                 kol_vnes += massiv_activ_buttons[di3];
             }
