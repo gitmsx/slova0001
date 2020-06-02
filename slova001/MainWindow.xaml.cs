@@ -31,7 +31,9 @@ namespace slova001
         SolidColorBrush color104 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#00701a"));
         SolidColorBrush color105 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
         SolidColorBrush color106 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#003c8f"));
-
+        SolidColorBrush color107 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#1565c0"));
+        SolidColorBrush color108 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#b3e5fc"));
+        
 
 
 
@@ -155,8 +157,16 @@ namespace slova001
 
             newBtn.Width = newBtn.Width + 7;
             newBtn.Height = newBtn.Height + 3;
-            newBtn.Background = color101;  // wrap 1 add
-            
+            newBtn.Background = color108;  // wrap 1 add
+
+
+            newBtn.BorderBrush = color107;  // 
+
+
+            newBtn.Margin = new Thickness(5, 2, 0, 0);
+            newBtn.BorderThickness = new Thickness(1, 1, 1, 3);
+
+
 
             newBtn.Click += new RoutedEventHandler(click_wrap1);
             WrapPanel001.Children.Add(newBtn);
