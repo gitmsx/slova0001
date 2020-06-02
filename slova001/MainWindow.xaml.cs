@@ -53,6 +53,7 @@ namespace slova001
         public MainWindow()
         {
             InitializeComponent();
+            new_uroks();
         }
 
         private void butt001_Click(object sender, RoutedEventArgs e)
@@ -297,6 +298,31 @@ namespace slova001
         {
             load_from_txt();
         }
+
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            foreach (Button txt12 in WrapPanel001.Children)
+            {
+
+
+                txt12.FontSize = slider_size.Value;
+                txt12.Width = txt12.Width + 7;
+                txt12.Height = txt12.Height + 3;
+            }
+        }
+        private void Slider_ValueChanged2(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            foreach (Button txt12 in WrapPanel002.Children)
+            {
+
+
+                txt12.FontSize = slider_size2.Value;
+                txt12.Width = txt12.Width + 7;
+                txt12.Height = txt12.Height + 3;
+            }
+        }
+
 
         private void butt004_Click(object sender, RoutedEventArgs e)
         {
