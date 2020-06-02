@@ -23,8 +23,18 @@ namespace slova001
     public partial class MainWindow : Window
     {
 
+
+
+        SolidColorBrush color102 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0d47a1"));
+        SolidColorBrush color101 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#82b3c9"));
+        SolidColorBrush color103 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#b4004e"));
+        SolidColorBrush color104 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#00701a"));
+
+
+
         private string but_ch = "but_cho";
         private string but_ans = "but_ans";
+
 
         private int kolichestvo_slov = -2;
         private int vneseno_slov = 0;
@@ -47,7 +57,7 @@ namespace slova001
 
 
 
-         
+
 
 
         public MainWindow()
@@ -58,7 +68,7 @@ namespace slova001
 
         private void butt001_Click(object sender, RoutedEventArgs e)
         {
-          
+
         }
 
 
@@ -90,10 +100,7 @@ namespace slova001
 
         private void new_message_in_words_in_panel_choice(object sender, RoutedEventArgs e)
         {
-
             new_uroks();
-
-  
         }
 
 
@@ -101,10 +108,6 @@ namespace slova001
 
         private void new_uroks()
         {
-
-
-
-
             WrapPanel001.Children.Clear();
             WrapPanel002.Children.Clear();
 
@@ -123,14 +126,8 @@ namespace slova001
 
                 newBtn.Width = newBtn.Width + 7;
                 newBtn.Height = newBtn.Height + 3;
-
-                newBtn.Background = Brush_set_l101;
-
-                newBtn.BorderBrush = Brush_set_l102;
-
-
-
-
+                newBtn.Background = color101;  // new urok
+               
                 newBtn.Click += new RoutedEventHandler(click_wrap2);
                 WrapPanel002.Children.Add(newBtn);
 
@@ -140,9 +137,6 @@ namespace slova001
 
         private void add_word_in_answer(int position)
         {
-
-
-
             Button newBtn = new Button();
             newBtn.Content = massiv_input[position];
             newBtn.Name = but_ans + position.ToString();
@@ -150,34 +144,26 @@ namespace slova001
 
             newBtn.Width = newBtn.Width + 7;
             newBtn.Height = newBtn.Height + 3;
+            newBtn.Background = color101;  // wrap 1 add
 
-
-            newBtn.BorderBrush = Brush_set_l101;
-
-            //MyControl.Margin = new Padding(0, 0, 0, 0);
             newBtn.Click += new RoutedEventHandler(click_wrap1);
             WrapPanel001.Children.Add(newBtn);
-
-            
 
             int kol_vnes = 0;
 
             for (int di3 = 1; di3 < massiv_input.Length; di3++)
             {
-                kol_vnes += massiv_activ_buttons[di3] ;
+                kol_vnes += massiv_activ_buttons[di3];
             }
 
             if (kol_vnes == 0)
             {
-
-            
-            bool foundanswer = check_answer();
-            if (foundanswer)
-            {
-
+                bool foundanswer = check_answer();
+                if (foundanswer)
+                {
                     MessageBox.Show("You win!!!");
-                new_uroks();  
-            }
+                    new_uroks();
+                }
             }
 
         }
@@ -188,41 +174,23 @@ namespace slova001
             var btn = sender as Button;
             if (btn != null)
             {
- 
+
 
                 string but_cho_str = btn.Name;
                 string but_cho_str2 = but_cho_str.Replace(but_ans, "");
-              
-                
-      
 
                 int numb_but_pressed = Convert.ToInt32(but_cho_str2);
                 massiv_activ_buttons[numb_but_pressed] = 1;
                 WrapPanel001.Children.Remove(btn);
-
-
-
-
-             
-
                 foreach (Button txt12 in WrapPanel002.Children)
                 {
                     if (txt12.Name == but_ch + but_cho_str2)
                     {
-                        txt12.BorderBrush = Brush_set_l101;
-                        txt12.Background = Brush_set_l102;
-
-
+                        txt12.Background = color101;// wrap 2 101 vozvrat   = ok    
                     }
                     else
                         continue;
                 }
-
-
-
-
-
-
 
 
             }
@@ -237,15 +205,13 @@ namespace slova001
 
                 string but_cho_str = btn.Name;
                 string but_cho_str2 = but_cho_str.Replace(but_ch, "");
-
-
-                int numb_but_pressed = Convert.ToInt32(but_cho_str2); 
+                int numb_but_pressed = Convert.ToInt32(but_cho_str2);
 
 
                 if (massiv_activ_buttons[numb_but_pressed] == 1)
                 {
                     massiv_activ_buttons[numb_but_pressed] = 0;
-                    btn.Background = Brush_set_l103;
+                    btn.Background = color102;             //  1-> 2 101 
                     add_word_in_answer(numb_but_pressed);
                 }
             }
@@ -255,7 +221,7 @@ namespace slova001
         private string load_from_txt()
         {
             string[] lines = System.IO.File.ReadAllLines(@"T_eng2.txt", Encoding.GetEncoding(1251));
-            
+
 
             string[] line_s_rus = System.IO.File.ReadAllLines(@"T_rus.txt", Encoding.GetEncoding(1251));
             string[] line_s_rus2 = System.IO.File.ReadAllLines(@"T_rus2.txt", Encoding.GetEncoding(1251));
@@ -281,13 +247,13 @@ namespace slova001
 
             foreach (Button txt12 in WrapPanel001.Children)
             {
-                prov_str += txt12.Content +" "; 
+                prov_str += txt12.Content + " ";
             }
-                if (prov_str != TextBox002.Text +" ")
-                {
-                    identical = false;
-                   
-                }
+            if (prov_str != TextBox002.Text + " ")
+            {
+                identical = false;
+
+            }
             return identical;
 
         }
@@ -338,6 +304,6 @@ namespace slova001
 
 
         }
-         
+
     }
 }
