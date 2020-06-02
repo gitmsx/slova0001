@@ -254,8 +254,8 @@ namespace slova001
 
         private string load_from_txt()
         {
-            string[] lines = System.IO.File.ReadAllLines(@"T_eng.txt");
-            string[] line_s_eng2 = System.IO.File.ReadAllLines(@"T_eng2.txt", Encoding.GetEncoding(1251));
+            string[] lines = System.IO.File.ReadAllLines(@"T_eng2.txt", Encoding.GetEncoding(1251));
+            
 
             string[] line_s_rus = System.IO.File.ReadAllLines(@"T_rus.txt", Encoding.GetEncoding(1251));
             string[] line_s_rus2 = System.IO.File.ReadAllLines(@"T_rus2.txt", Encoding.GetEncoding(1251));
@@ -264,7 +264,7 @@ namespace slova001
             int jrand = rand001.Next(lines.Length);
 
             TextBox001.Text = line_s_rus[jrand];
-            TextBox002.Text = line_s_eng2[jrand];
+            TextBox002.Text = lines[jrand];
             TextBox003.Text = Convert.ToString(jrand) + "  " + line_s_rus2[jrand];
             return lines[jrand];
         }

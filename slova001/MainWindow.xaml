@@ -15,10 +15,10 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions >
-            <RowDefinition Height="3.5*" ></RowDefinition>
-            <RowDefinition Height="3.5*" ></RowDefinition>
+            <RowDefinition Height="7.5*" ></RowDefinition>
+            <RowDefinition Height="7.5*" ></RowDefinition>
 
-            <RowDefinition Height="2*" ></RowDefinition>
+            <RowDefinition Height="1.7*" ></RowDefinition>
             <RowDefinition Height="*" ></RowDefinition>
             <RowDefinition Height="*" ></RowDefinition>
             
@@ -26,20 +26,20 @@
         </Grid.RowDefinitions>
 
 
-        <WrapPanel Name="WrapPanel001" Orientation="Horizontal" Grid.Row="0" Background="#FF37595F"></WrapPanel>
-        <WrapPanel Name="WrapPanel002" Grid.Row="1" Background="#FF418A97"></WrapPanel>
-        <WrapPanel Name="WrapPanel004" Grid.Row="3" Background="#FF39B1C7">
+        <WrapPanel Name="WrapPanel001" Orientation="Horizontal" Grid.Row="0" Background="#003c8f"></WrapPanel>
+        <WrapPanel Name="WrapPanel002" Grid.Row="1" Background="#0d47a1"></WrapPanel>
+        <WrapPanel Name="WrapPanel004" Grid.Row="3" Background="#003c8f">
             <TextBox Name="TextBox001" ></TextBox>
             <TextBox Name="TextBox003" ></TextBox>
         </WrapPanel>
-        <WrapPanel Name="WrapPanel005" Grid.Row="4"  Background="#FF1594AB">
+        <WrapPanel Name="WrapPanel005" Grid.Row="4"  Background="#0d47a1">
 
             <TextBox Name="TextBox002" ></TextBox>
         </WrapPanel>
 
 
 
-        <WrapPanel Grid.Row="2" FlowDirection="LeftToRight" Background="#FF355D64" >
+        <WrapPanel Grid.Row="2" FlowDirection="LeftToRight" Background="#02599b" >
             <Button Name="butt002" Background="#FFB5D9d3" Margin="4" Content=" Load " Click="new_message_in_words_in_panel_choice" />
             <Button Name="butt004" Background="#FFB5D911" Margin="4" Content=" Voce " Click="butt004_Click" />
             <TextBox Text="  " Height="0"></TextBox>
