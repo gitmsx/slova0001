@@ -29,26 +29,26 @@
         <WrapPanel Name="WrapPanel001" Orientation="Horizontal" Grid.Row="0" Background="#003c8f"></WrapPanel>
         <WrapPanel Name="WrapPanel002" Grid.Row="1" Background="#0d47a1"></WrapPanel>
         <WrapPanel Name="WrapPanel004" Grid.Row="3" Background="#003c8f">
-            <TextBox Name="TextBox001" ></TextBox>
-            <TextBox Name="TextBox003" ></TextBox>
+            <TextBox Background="#b2dfdb" Name="TextBox001" ></TextBox>
+            <TextBox Background="#b2dfdb" Name="TextBox003" ></TextBox>
         </WrapPanel>
         <WrapPanel Name="WrapPanel005" Grid.Row="4"  Background="#0d47a1">
 
-            <TextBox Name="TextBox002" ></TextBox>
+            <TextBox Background="#b2dfdb" Name="TextBox002" ></TextBox>
         </WrapPanel>
 
 
 
         <WrapPanel Grid.Row="2" FlowDirection="LeftToRight" Background="#02599b" >
             <Button Name="butt002" Background="#FFB5D9d3" Margin="4" Content=" Load " Click="new_message_in_words_in_panel_choice" />
-            <Button Name="butt004" Background="#FFB5D911" Margin="4" Content=" Voce " Click="butt004_Click" />
+            <Button Name="butt004" Background="#b2dfdb" Margin="4" Content=" Voce " Click="butt004_Click" />
             <TextBox Text="  " Height="0"></TextBox>
             <TextBox Text=" Speed " Height="22"></TextBox>
             <Slider Name="sliderspeed"  TickPlacement="BottomRight" TickFrequency="1"     HorizontalAlignment="Center" Width="123" Margin="4" Maximum="7" Minimum="-5" Value="-2" ></Slider>
    
             <TextBox Text=" Vol " Height="22"></TextBox>
             <Slider Name="slidervol"  TickPlacement="BottomRight" TickFrequency="5"   Width="123" Margin="4" Maximum="100" Minimum="0" Value="95" ></Slider>
-            <TextBox Text=" Size " Height="22"></TextBox>
+            <TextBox   Text=" Size " Height="22"></TextBox>
             <Slider x:Name="slider_size" ValueChanged="Slider_ValueChanged" TickPlacement="BottomRight" TickFrequency="5"    Width="100" Margin="4" Maximum="48" Minimum="6" Value="24" />
             <Slider x:Name="slider_size2" ValueChanged="Slider_ValueChanged2" TickPlacement="BottomRight" TickFrequency="5"    Width="100" Margin="4" Maximum="48" Minimum="6" Value="24" />
             </WrapPanel>
