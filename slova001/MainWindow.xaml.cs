@@ -227,9 +227,11 @@ namespace slova001
                 {
                     if (txt12.Name == but_ch + but_cho_str2)
                     {
+                      //  txt12.IsEnabled = true;
                         txt12.Background = color101;// wrap 2 101 vozvrat   = ok   proyavka 
                         txt12.Foreground = color105;  //  105
                         txt12.BorderBrush = color106;
+                        
                     }
                     else
                         continue;
@@ -250,9 +252,11 @@ namespace slova001
                 if (massiv_activ_buttons[numb_but_pressed] == 1)
                 {
                     massiv_activ_buttons[numb_but_pressed] = 0;
+                  //  btn.IsEnabled = false;
                     btn.Background = color102;             //  1-> 2 101 skryvau 
                     btn.Foreground = color102;
                     btn.BorderBrush = color102;
+                    
                     add_word_in_answer(numb_but_pressed);
                 }
             }
