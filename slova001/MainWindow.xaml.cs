@@ -23,8 +23,6 @@ namespace slova001
     public partial class MainWindow : Window
     {
 
-
-
         SolidColorBrush color102 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0d47a1"));
         SolidColorBrush color101 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#82b3c9"));
         SolidColorBrush color103 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#b4004e"));
@@ -33,36 +31,15 @@ namespace slova001
         SolidColorBrush color106 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#003c8f"));
         SolidColorBrush color107 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#1565c0"));
         SolidColorBrush color108 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#b3e5fc"));
-        
-
-
-
 
         private string but_ch = "but_cho";
         private string but_ans = "but_ans";
-
 
         private int kolichestvo_slov = -2;
         private int vneseno_slov = 0;
 
         string[] massiv_input = new String[75];
         int[] massiv_activ_buttons = new int[75];
-
-        //string[] massiv_etalon = new String[75];
-        //string[] massiv__ouput = new String[75];
-        //Label[] massiv__ouput_link = new Label[75];
-
-
-        //Brush Brush_set_l101 = Brushes.DarkGray;
-        //Brush Brush_set_l102 = Brushes.SteelBlue;
-        //Brush Brush_set_l103 = Brushes.DarkSlateGray;
-
-
-        //int count_all_word = 0;  // Current number of entered words.
-        //int count_inpuut_word = 0;  // Current number of entered words.
-
-
-
 
 
 
@@ -91,7 +68,7 @@ namespace slova001
 
             tmp_mas = System.Text.RegularExpressions.Regex.Split(input_fra3, pattern);
 
-            
+
 
 
 
@@ -107,10 +84,10 @@ namespace slova001
                         tmp_mas[ifs + 1] = "";
                     }
 
-             
+
             }
 
-           
+
             for (ifs = 0; ifs < kolichestvo_slov; ifs++)
             {
                 massiv_input[ifs] = "";
@@ -121,7 +98,7 @@ namespace slova001
             {
                 if (tmp_mas[ifs].Length > 0)
                 {
-                    
+
                     massiv_input[kol_stkor] = tmp_mas[ifs];
                     kol_stkor++;
 
@@ -181,11 +158,9 @@ namespace slova001
                 newBtn.Background = color101;  // new urok
                 newBtn.Foreground = color105;  // new urok
                 newBtn.BorderBrush = color106;  // new urok
-                
 
                 newBtn.Margin = new Thickness(5, 2, 0, 0);
                 newBtn.BorderThickness = new Thickness(1, 1, 1, 3);
-
 
                 newBtn.Click += new RoutedEventHandler(click_wrap2);
                 WrapPanel002.Children.Add(newBtn);
@@ -205,9 +180,7 @@ namespace slova001
             newBtn.Height = newBtn.Height + 3;
             newBtn.Background = color108;  // wrap 1 add
 
-
             newBtn.BorderBrush = color107;  // 
-
 
             newBtn.Margin = new Thickness(5, 2, 0, 0);
             newBtn.BorderThickness = new Thickness(1, 1, 1, 3);
@@ -271,18 +244,14 @@ namespace slova001
             var btn = sender as Button;
             if (btn != null)
             {
-                //MessageBox.Show(btn.Name);
-
                 string but_cho_str = btn.Name;
                 string but_cho_str2 = but_cho_str.Replace(but_ch, "");
                 int numb_but_pressed = Convert.ToInt32(but_cho_str2);
-
-
                 if (massiv_activ_buttons[numb_but_pressed] == 1)
                 {
                     massiv_activ_buttons[numb_but_pressed] = 0;
-                    btn.Background  = color102;             //  1-> 2 101 skryvau 
-                    btn.Foreground  = color102;
+                    btn.Background = color102;             //  1-> 2 101 skryvau 
+                    btn.Foreground = color102;
                     btn.BorderBrush = color102;
                     add_word_in_answer(numb_but_pressed);
                 }
@@ -292,31 +261,32 @@ namespace slova001
 
         private string load_from_txt()
         {
-            string[] lines = System.IO.File.ReadAllLines(@"T_eng2.txt", Encoding.GetEncoding(1251));
-
-
-            string[] line_s_rus = System.IO.File.ReadAllLines(@"T_rus.txt", Encoding.GetEncoding(1251));
-            string[] line_s_rus2 = System.IO.File.ReadAllLines(@"T_rus2.txt", Encoding.GetEncoding(1251));
+            string[] lines = System.IO.File.ReadAllLines(@"eng0001.txt", Encoding.GetEncoding(1251));
+            string[] line_s_rus = System.IO.File.ReadAllLines(@"rus0001.txt", Encoding.GetEncoding(1251));
+            string[] line_s_rus2 = System.IO.File.ReadAllLines(@"rus0002.txt", Encoding.GetEncoding(1251));
 
             var rand001 = new Random();
             int jrand = rand001.Next(lines.Length);
 
             TextBox001.Text = line_s_rus[jrand];
             TextBox002.Text = lines[jrand];
-            TextBox003.Text = Convert.ToString(jrand) + "  " + line_s_rus2[jrand];
+            if (line_s_rus2[jrand] != line_s_rus[jrand])
+            {
+                TextBox003.Text = line_s_rus2[jrand] + "  " + Convert.ToString(jrand);
+            }
+            else
+            {
+                TextBox003.Text = "";
+            }
             return lines[jrand];
         }
 
 
 
-
         bool check_answer()
         {
-
             bool identical = true;
             string prov_str = "";
-
-
             foreach (Button txt12 in WrapPanel001.Children)
             {
                 prov_str += txt12.Content + " ";
@@ -324,10 +294,8 @@ namespace slova001
             if (prov_str.ToUpper() != TextBox002.Text.ToUpper() + " ")
             {
                 identical = false;
-
             }
             return identical;
-
         }
 
 
@@ -342,8 +310,6 @@ namespace slova001
         {
             foreach (Button txt12 in WrapPanel001.Children)
             {
-
-
                 txt12.FontSize = slider_size.Value;
                 txt12.Width = txt12.Width + 7;
                 txt12.Height = txt12.Height + 3;
@@ -353,8 +319,6 @@ namespace slova001
         {
             foreach (Button txt12 in WrapPanel002.Children)
             {
-
-
                 txt12.FontSize = slider_size2.Value;
                 txt12.Width = txt12.Width + 7;
                 txt12.Height = txt12.Height + 3;
@@ -367,14 +331,8 @@ namespace slova001
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.Rate = Convert.ToInt32(sliderspeed.Value);
             synth.Volume = Convert.ToInt32(slidervol.Value);
-
-            // Configure the audio output.   
             synth.SetOutputToDefaultAudioDevice();
-
-            // Speak a string.  
             synth.SpeakAsync(TextBox002.Text);
-
-
         }
 
     }
