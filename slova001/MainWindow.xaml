@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:slova001"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="850">
+    <Viewbox Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+        
+        
+
+        
+        <Grid>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=" *" ></ColumnDefinition>
@@ -15,20 +20,20 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions >
-            <RowDefinition Height="7.5*" ></RowDefinition>
-            <RowDefinition Height="7.5*" ></RowDefinition>
+                <RowDefinition Height="7.5*" MinHeight=" 140"></RowDefinition>
+                <RowDefinition Height="7.5*" MinHeight=" 140"></RowDefinition>
 
-            <RowDefinition Height="1.7*" ></RowDefinition>
-            <RowDefinition Height="*" ></RowDefinition>
-            <RowDefinition Height="*" ></RowDefinition>
+                <RowDefinition Height="1.7*" MinHeight=" 20"></RowDefinition>
+            <RowDefinition Height="*" MinHeight=" 20"></RowDefinition>
+            <RowDefinition Height="*" MinHeight=" 20"></RowDefinition>
             
             
         </Grid.RowDefinitions>
 
 
         <WrapPanel Name="WrapPanel001" Orientation="Horizontal" Grid.Row="0" Background="#003c8f"></WrapPanel>
-        <WrapPanel Name="WrapPanel002" Grid.Row="1" Background="#0d47a1"></WrapPanel>
-        <WrapPanel Name="WrapPanel004" Grid.Row="3" Background="#003c8f">
+        <WrapPanel Name="WrapPanel002" Grid.Row="1" Background="#0d47a1"/>
+            <WrapPanel Name="WrapPanel004" Grid.Row="3" Background="#003c8f">
             <TextBox Background="#b2dfdb" Name="TextBox001" ></TextBox>
             <TextBox Background="#b2dfdb" Name="TextBox003" ></TextBox>
         </WrapPanel>
@@ -57,4 +62,5 @@
 
 
     </Grid>
+    </Viewbox>
 </Window>
